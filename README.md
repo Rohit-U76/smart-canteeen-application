@@ -62,16 +62,4 @@ This application provides RESTful APIs to support efficient canteen workflows an
 - `Order`
 - `OrderItem`
 
-### Sample Entity
-```java
-@Entity
-public class FoodItem {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
-    private double price;
-    private boolean available;
-}
+![image alt](https://github.com/Rohit-U76/smart-canteeen-application/blob/0fa1152b5983a50b3ceac5af90951f1f88f82262/smart-canteen.png)
