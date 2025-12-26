@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="navbar">
+    <h1>Order Confirmation</h1>
+    <a th:href="@{/}" class="cart-button" style="background-color: var(--secondary-color);">Back to Menu</a>
+</header>
+
+<main class="container" style="text-align: center;">
+    <h2 class="section-title" style="color: var(--secondary-color);">✅ Order Successful!</h2>
+
+    <p style="font-size: 1.4em; margin: 30px 0;" th:text="${message}">
+        Order placed successfully! Pickup ID: [ID Placeholder]
+    </p>
+
+    <p style="font-size: 1.1em; color: #6c757d;">
+        Please proceed to the canteen and wait for the staff to mark your order as 'Ready' for pickup.
+    </p>
+
+    <div style="margin-top: 50px;">
+        <a th:href="@{/}" class="add-to-cart-btn">View Menu Again</a>
+    </div>
+</main>
+</body>
+</html>

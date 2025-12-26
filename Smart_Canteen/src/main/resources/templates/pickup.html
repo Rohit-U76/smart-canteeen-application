@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canteen Pickup Queue</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .status-ready { background-color: #d4edda; border-left: 5px solid var(--secondary-color); }
+    </style>
+</head>
+<body>
+<header class="navbar">
+    <h1>Canteen Pickup Management 🧑‍🍳</h1>
+    <a th:href="@{/}" class="cart-button" style="background-color: #6c757d;">Customer Menu</a>
+</header>
+
+<main class="container">
+    <h2 class="section-title">Pending Orders (To be Prepared)</h2>
+    <div class="menu-grid order-list">
+        <div class="menu-card" th:each="order : ${pendingOrders}">
+            <h3 th:text="'Order #' + ${order.id}">Order #101</h3>
+            <p>Customer: <span th:text="${order.customerName}"></span></p>
+            <p>Time: <span th:text="${#temporals.format(order.orderTime, 'HH:mm')}"></span></p>
+
+            <form th:action="@{/order/status/{id}(id=${order.id})}" method="post">
+                <input type="hidden" name="action" value="ready">
+                <button type="submit" class="add-to-cart-btn">Mark as Ready</button>
+            </form>
+        </div>
+
+        <div class="menu-card empty-state" th:if="${pendingOrders.isEmpty()}">
+            <h3>No Pending Orders</h3>
+        </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 50px;">Ready for Pickup</h2>
+    <div class="menu-grid order-list">
+        <div class="menu-card status-ready" th:each="order : ${readyOrders}">
+            <h3 th:text="'Order #' + ${order.id}">Order #102</h3>
+            <p>Customer: <span th:text="${order.customerName}"></span></p>
+
+            <form th:action="@{/order/status/{id}(id=${order.id})}" method="post">
+                <input type="hidden" name="action" value="picked_up">
+                <button type="submit" class="add-to-cart-btn" style="background-color: #6c757d;">Mark as Picked Up</button>
+            </form>
+        </div>
+
+        <div class="menu-card empty-state" th:if="${readyOrders.isEmpty()}">
+            <h3>No Orders Ready</h3>
+        </div>
+    </div>
+</main>
+</body>
+</html>

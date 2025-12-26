@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Canteen Menu</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="navbar">
+    <h1>Smart Canteen Preorder 🍽️</h1>
+    <div>
+        <a th:href="@{/order/new}" class="cart-button">🛒 Start Preorder</a>
+        <a th:href="@{/order/pickup}" class="cart-button" style="background-color: #6c757d; margin-left: 10px;">🧑‍🍳 Staff View</a>
+    </div>
+</header>
+
+<main class="container">
+    <h2 class="section-title">Today's Menu</h2>
+
+    <div class="menu-grid">
+
+        <div class="menu-card" th:each="item : ${menuItems}">
+            <h3 class="item-name" th:text="${item.name}">Item Name Placeholder</h3>
+            <p class="item-desc" th:text="${item.description}">A tasty description of the dish.</p>
+            <p class="item-price" th:text="'$ ' + ${item.price}">$ 5.00</p>
+
+            <a th:href="@{/order/new}" class="add-to-cart-btn">Preorder This</a>
+        </div>
+
+        <div class="menu-card empty-state" th:if="${menuItems.isEmpty()}">
+            <h3>No Menu Items Available Today</h3>
+            <p>The canteen is currently closed or the menu is empty.</p>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Your Order</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="navbar">
+    <h1>Complete Your Preorder</h1>
+    <a th:href="@{/}" class="cart-button">⬅️ Back to Menu</a>
+</header>
+
+<main class="container">
+    <h2 class="section-title">Finalize Order</h2>
+
+    <form th:action="@{/order/place}" th:object="${order}" method="post" class="order-form">
+
+        <label for="customerName">Your Name/ID (Required for Pickup):</label>
+        <input type="text" id="customerName" th:field="*{customerName}" required>
+
+        <p style="margin-top: 20px; font-style: italic; color: #6c757d;">
+            (Assuming your selected menu items are already bundled with this order.)
+        </p>
+
+        <button type="submit" class="add-to-cart-btn" style="background-color: var(--secondary-color);">
+            Confirm and Place Order
+        </button>
+    </form>
+</main>
+</body>
+</html>

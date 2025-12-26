@@ -1,0 +1,186 @@
+/* --- Root Variables for Color Palette --- */
+:root {
+    --primary-color: #007bff; /* Blue - Main Action Color */
+    --secondary-color: #28a745; /* Green - Success/Availability */
+    --accent-color: #ffc107; /* Yellow/Amber - Highlights */
+    --background-light: #f8f9fa; /* Light background */
+    --card-bg-color: #ffffff; /* White card background */
+    --text-color-dark: #343a40; /* Dark text */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Global Styles for a clean, modern look --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color-dark);
+}
+
+/* --- Header/Navbar Style --- */
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.cart-button {
+    background-color: var(--accent-color);
+    color: var(--text-color-dark);
+    padding: 10px 20px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cart-button:hover {
+    background-color: #e0a800; /* Darker accent */
+    transform: scale(1.05);
+}
+
+/* --- Layout and Grid --- */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- Interactive Menu Card --- */
+.menu-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid var(--secondary-color); /* Colorful top accent */
+}
+
+/* Interactive Hover Effect */
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.item-name {
+    color: var(--text-color-dark);
+    margin-top: 0;
+}
+
+.item-desc {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.item-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.4em;
+    margin: 15px 0;
+}
+
+/* Quantity Control Styling for Order Form/Cart */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+/* --- Button Styling (Used for Add to Cart/Preorder) --- */
+.add-to-cart-btn {
+    display: block; /* Make the button full width */
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center; /* For links styled as buttons */
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3; /* Darker Blue */
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(2px);
+}
+
+/* --- Order Form Specific Styles (order.html) --- */
+.order-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-bg-color);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+}
+
+.order-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.order-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* --- Pickup View Specific Styles (pickup.html) --- */
+.order-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.order-list .menu-card {
+    flex: 1 1 300px;
+    border-top: 5px solid var(--accent-color);
+}
+
+.order-list .status-ready {
+    border-top: 5px solid var(--secondary-color);
+    background-color: #e6ffec; /* Lighter success background */
+}
