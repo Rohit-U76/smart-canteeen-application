@@ -67,3 +67,5 @@ This application provides RESTful APIs to support efficient canteen workflows an
 ![image alt](https://raw.githubusercontent.com/Rohit-U76/smart-canteeen-application/eadeac8ae4d820b6900ae1ffc0f1f658f87a78d6/orderplacing.png)
 
 ![image alt](https://github.com/Rohit-U76/smart-canteeen-application/blob/3926a48532ae7253a5e8bd75fbda8577fd770d2e/orders.png)
+
+![image alt](https://github.com/Rohit-U76/smart-canteeen-application/blob/a5fe127ed1cf33c9c87d822e1156432531f95651/pickedupmark.png)
